@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dropkick Optgroup Issue Repro</title>
+        <link rel="stylesheet" type="text/css" href="css/dropkick.css" />
+        <style>
+            body {
+                padding: 0 1rem;
+            }
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Observe the two dropkicks below. Note how the instance without
+            optgroups (right) correctly highlights the selected item upon
+            opening the dropdown while the instance with optgroups (left) does
+            not.
+        </p>
+        <div style="display: flex">
+            <div style="width: 50%">
+                <h2>With optgroup</h2>
+                <label for="font-family">Choose a font:</label>
+                <select id="optgroup" name="font-family">
+                    <optgroup label="Standard Fonts">
+                        <option value="Arial, Helvetica, sans-serif">
+                            Arial
+                        </option>
+                        <option value="Courier New, Courier, monospace">
+                            Courier New
+                        </option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="Helvetica, Arial, sans-serif">
+                            Helvetica
+                        </option>
+                        <option value="Tahoma, Geneva, sans-serif">
+                            Tahoma
+                        </option>
+                        <option value="Times, serif">Times</option>
+                        <option value="Trebuchet MS, Helvetica, sans-serif">
+                            Trebuchet MS
+                        </option>
+                        <option value="Verdana, Geneva, sans-serif">
+                            Verdana
+                        </option>
+                    </optgroup>
+                    <optgroup label="Web Fonts">
+                        <option value="Arvo, Times, serif">Arvo</option>
+                        <option value="Lato, Helvetica, Arial, sans-serif">
+                            Lato
+                        </option>
+                        <option value="Lora, Times, serif">Lora</option>
+                        <option value="Merriweather, Times, serif">
+                            Merriweather
+                        </option>
+                        <option value="Merriweather Sans, Verdana, sans-serif">
+                            Merriweather Sans
+                        </option>
+                        <option value="Noticia Text, Times, serif">
+                            Noticia Text
+                        </option>
+                        <option value="Open Sans, Helvetica, Arial, sans-serif">
+                            Open Sans
+                        </option>
+                        <option
+                            value="Permanent Marker, Comic Sans, sans-serif"
+                        >
+                            Permanent Marker
+                        </option>
+                        <option value="Playfair Display, Times, serif">
+                            Playfair Display
+                        </option>
+                        <option value="Roboto, Helvetica, Arial, sans-serif">
+                            Roboto
+                        </option>
+                        <option
+                            value="Source Sans Pro, Helvetica, Arial, sans-serif"
+                        >
+                            Source Sans Pro
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+            <div style="width: 50%">
+                <h2>Without optgroup</h2>
+                <label for="font-family">Choose a font:</label>
+                <select id="no-optgroup" name="font-family">
+                    <option value="" disabled>Arial</option>
+                    <option value="Arial, Helvetica, sans-serif">Arial</option>
+                    <option value="Courier New, Courier, monospace">
+                        Courier New
+                    </option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Helvetica, Arial, sans-serif">
+                        Helvetica
+                    </option>
+                    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+                    <option value="Times, serif">Times</option>
+                    <option value="Trebuchet MS, Helvetica, sans-serif">
+                        Trebuchet MS
+                    </option>
+                    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                    <option value="" disabled>Web Fonts</option>
+                    <option value="Arvo, Times, serif">Arvo</option>
+                    <option value="Lato, Helvetica, Arial, sans-serif">
+                        Lato
+                    </option>
+                    <option value="Lora, Times, serif">Lora</option>
+                    <option value="Merriweather, Times, serif">
+                        Merriweather
+                    </option>
+                    <option value="Merriweather Sans, Verdana, sans-serif">
+                        Merriweather Sans
+                    </option>
+                    <option value="Noticia Text, Times, serif">
+                        Noticia Text
+                    </option>
+                    <option value="Open Sans, Helvetica, Arial, sans-serif">
+                        Open Sans
+                    </option>
+                    <option value="Permanent Marker, Comic Sans, sans-serif">
+                        Permanent Marker
+                    </option>
+                    <option value="Playfair Display, Times, serif">
+                        Playfair Display
+                    </option>
+                    <option value="Roboto, Helvetica, Arial, sans-serif">
+                        Roboto
+                    </option>
+                    <option
+                        value="Source Sans Pro, Helvetica, Arial, sans-serif"
+                    >
+                        Source Sans Pro
+                    </option>
+                </select>
+            </div>
+        </div>
+        <script src="js/dropkick-2.2.5.min.js"></script>
+        <script type="text/javascript">
+            new Dropkick('#optgroup');
+            new Dropkick('#no-optgroup');
+        </script>
+    </body>
+</html>
